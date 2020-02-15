@@ -5,5 +5,7 @@ Thumbs.db
 .cache
 dist
 .env
-backend/public/index.html
-backend/public/src*
+backend/public/*.css
+backend/public/*.css.map
+backend/public/*.js
+backend/public/*.js.map
