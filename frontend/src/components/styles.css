@@ -1,0 +1,50 @@
+:root {
+  --shadow: #000;
+}
+
+body {
+  background: #131313;
+  color: #f4f4f4;
+  font-family: sans-serif;
+  font-size: 64px;
+  line-height: 1.8;
+  margin: 0;
+  height: calc(100vh - 32px);
+  overflow: hidden;
+}
+
+main {
+  width: 100%;
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+}
+
+@media (min-width: 1000px) {
+  body {
+    margin: 0 auto;
+    max-width: 1000px;
+  };
+}
+
+p {
+  position: absolute;
+  margin: 0;
+  display: block;
+  bottom: 0;
+  left: 0;
+  background: rgba(18,18,18,.8);
+  right: 0;
+  text-align: center;
+  text-transform: uppercase;
+  
+  text-shadow: 0 0 6px var(--shadow), 
+    2px 0 0 var(--shadow), 
+    -2px 0 0 var(--shadow), 
+    0 2px 0 var(--shadow), 
+    0 -2px 0 var(--shadow), 
+    1px 1px var(--shadow), 
+    -1px -1px 0 var(--shadow), 
+    1px -1px 0 var(--shadow), 
+    -1px 1px 0 var(--shadow);
+}

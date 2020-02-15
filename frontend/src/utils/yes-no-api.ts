@@ -1,0 +1,13 @@
+
+export type Answer = {
+  answer?: string;
+  gif?: string;
+}
+
+export class YesNoApi {
+  static async getAnswer() {
+    const response = await fetch('/api/yesno/');
+    const data = await response.json();
+    return data as Answer;
+  }
+}

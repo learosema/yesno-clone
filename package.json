@@ -1,0 +1,34 @@
+{
+  "name": "yesno-clone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "concurrently": "^5.1.0",
+    "husky": "^4.2.3",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1"
+  },
+  "scripts": {
+    "test": "concurrently npm:test:backend npm:test:frontend",
+    "test:frontend": "cd frontend && npm test -s",
+    "test:backend": "cd backend && npm test -s",
+    "start": "concurrently npm:start:backend npm:start:frontend",
+    "start:backend": "cd backend && npm start",
+    "start:frontend": "cd frontend && npm start",
+    "build:frontend": "cd frontend && npm run build -s",
+    "clean": "rm -f frontend/dist/src* backend/public/index.html backend/public/*.css backend/public/*.js backend/public/*.css.map backend/public/*.js.map",
+    "prebuild": "npm run clean -s",
+    "build": "npm run build:frontend && cp frontend/dist/* backend/public"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
+}

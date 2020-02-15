@@ -1,0 +1,9 @@
+node_modules
+Thumbs.db
+.DS_Store
+
+.cache
+dist
+.env
+backend/public/index.html
+backend/public/src*
