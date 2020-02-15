@@ -19,7 +19,7 @@
     "start:backend": "cd backend && npm start",
     "start:frontend": "cd frontend && npm start",
     "build:frontend": "cd frontend && npm run build -s",
-    "clean": "rm -f frontend/dist/src* backend/public/index.html backend/public/*.css backend/public/*.js backend/public/*.css.map backend/public/*.js.map",
+    "clean": "rm -f frontend/dist/* backend/public/*.css backend/public/*.js backend/public/*.css.map backend/public/*.js.map",
     "prebuild": "npm run clean -s",
     "build": "npm run build:frontend && cp frontend/dist/* backend/public"
   },

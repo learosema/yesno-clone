@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "start": "node dev-proxy/server.js",
-    "build": "parcel build src/index.html",
+    "build": "parcel build --public-url . --no-content-hash src/index.tsx",
     "test": "jest"
   },
   "author": "",
