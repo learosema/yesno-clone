@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 
 import { getAnswer, Answer } from '../utils/yes-no-api';
 
-import './styles.css';
-
 export const App: React.FC = () => {
   const [answer, setAnswer] = useState<Answer>({});
   useEffect(() => {

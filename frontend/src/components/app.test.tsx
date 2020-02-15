@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { App } from './app';
 
+import { act } from 'react-dom/test-utils';
+
+import { App } from './app';
 /** 
  * mock the API
  */
@@ -11,6 +13,8 @@ jest.mock('../utils/yes-no-api', () => ({
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+  act(() => {
+    ReactDOM.render(<App />, div);
+  });
   ReactDOM.unmountComponentAtNode(div);
 });
