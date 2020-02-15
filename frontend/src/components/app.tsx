@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { YesNoApi, Answer } from '../utils/yes-no-api';
+import { getAnswer, Answer } from '../utils/yes-no-api';
 
 import './styles.css';
 
@@ -9,7 +9,7 @@ export const App: React.FC = () => {
   useEffect(() => {
     const asyncWrapper = async () => {
       try {
-        setAnswer(await YesNoApi.getAnswer());
+        setAnswer(await getAnswer());
       } catch (ex) {}
     };
     asyncWrapper();
