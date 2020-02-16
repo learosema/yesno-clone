@@ -7,8 +7,8 @@ import './styles.css';
 
 export const App: React.FC = () => {
   const [answer, setAnswer] = useState<Answer>({});
-  const apiRequest: Ajax<Answer> = getAnswer();
   useEffect(() => {
+    const apiRequest: Ajax<Answer> = getAnswer();
     const asyncWrapper = async () => {
       try {
         const answer = await apiRequest.send();
@@ -21,7 +21,7 @@ export const App: React.FC = () => {
     return () => {
       apiRequest.abort();
     }
-  }, [getAnswer, setAnswer, apiRequest]);
+  }, [getAnswer, setAnswer]);
   return (
     <main style={{backgroundImage: `url('${answer.gif}')`}}>
       <p>{answer.answer}</p>
