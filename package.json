@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "concurrently": "^5.1.0",
     "husky": "^4.2.3",
@@ -12,7 +11,7 @@
     "pretty-quick": "^2.0.1"
   },
   "scripts": {
-    "test": "concurrently npm:test:backend npm:test:frontend",
+    "test": "concurrently npm:test:frontend",
     "test:frontend": "cd frontend && npm test -s",
     "test:backend": "cd backend && npm test -s",
     "start": "concurrently npm:start:backend npm:start:frontend",
