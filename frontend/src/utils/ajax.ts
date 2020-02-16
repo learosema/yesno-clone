@@ -1,19 +1,9 @@
 /**
  * Exceptions from the API
  */
-export class ApiException extends Error {
-  name: string;
-  code: number;
+export interface ApiException {
+  status: number;
   details: any; 
-  constructor(code: number, message ?: any, details ?: any) {
-    super(message);
-    if (Error.captureStackTrace) {
-      Error.captureStackTrace(this, ApiException);
-    }
-    this.name = 'ApiException';
-    this.code = code;
-    this.details = details;
-  }
 }
 
 export enum RequestState {
@@ -69,7 +59,7 @@ export class Ajax<T = any> {
       const response = await this.promise;
       const json = await response.json();
       if (! response.ok) {
-        throw new ApiException(response.status, json.error, json.details);
+        throw {status: response.status, details: json} as ApiException;
       }
       this.state  = RequestState.READY;
       return json;

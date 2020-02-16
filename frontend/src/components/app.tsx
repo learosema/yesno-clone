@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 
 import { getAnswer, Answer } from '../utils/yes-no-api';
-import { RequestState } from '../utils/ajax';
+import { RequestState, Ajax } from '../utils/ajax';
+
+import './styles.css';
 
 export const App: React.FC = () => {
   const [answer, setAnswer] = useState<Answer>({});
+  const apiRequest: Ajax<Answer> = getAnswer();
   useEffect(() => {
-    const apiRequest = getAnswer();
     const asyncWrapper = async () => {
       try {
         const answer = await apiRequest.send();
@@ -19,7 +21,7 @@ export const App: React.FC = () => {
     return () => {
       apiRequest.abort();
     }
-  }, [getAnswer, setAnswer]);
+  }, [getAnswer, setAnswer, apiRequest]);
   return (
     <main style={{backgroundImage: `url('${answer.gif}')`}}>
       <p>{answer.answer}</p>
