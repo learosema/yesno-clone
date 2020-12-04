@@ -1,4 +1,4 @@
-const proxy = require('http-proxy-middleware');
+const { createProxyMiddleware } = require('http-proxy-middleware');
 const Bundler = require('parcel-bundler');
 const express = require('express');
 
@@ -7,8 +7,11 @@ const app = express();
 
 app.use(
   '/api',
-  proxy({
-    target: 'http://localhost:1337/'
+  createProxyMiddleware({
+    target: 'http://localhost:1337/',
+    onProxyReq: proxyReq => {
+      console.log('ProxyReq:', proxyReq.method, proxyReq.path);
+    }
   })
 );
 
